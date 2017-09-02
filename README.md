@@ -1,3 +1,3 @@
-##Algoritmo Minimax
+## Algoritmo Minimax
 
-Repositório para o trabalho sobre algoritmo minimax da disciplina de Inteligência Artificial da UNIFEI.
+Repositório para o trabalho sobre algoritmo **minimax** da disciplina de Inteligência Artificial da UNIFEI.

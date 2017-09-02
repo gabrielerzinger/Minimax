@@ -139,14 +139,17 @@
 	
 	def minimax(profundidade, indice, jogador, placar, h):
 	if (profundidade == h): # Se a profundidade chegou ao fim
-	return placar[indice] # Retorna o placar deste indice	
+		return placar[indice] # Retorna o placar deste indice	
 	
-	if(jogador == 1): #Se eh o jogador A ( maximizer )
+	#Se eh o jogador A ( maximizer )
+	#Maximo entre ir pra Dir/Esq
+	if(jogador == 1): 
 		return max(minimax(profundidade+1, indice*2, 0, placar, h),  
-	minimax(profundidade+1, indice*2 + 1, 0, placar, h)) #Maximo entre ir pra Dir/Esq
+	minimax(profundidade+1, indice*2 + 1, 0, placar, h)) 
 	
-	else: #Se eh o jogador B ( minimizer ) #Mininmo entre ir pra Dir/Esq
-	return min(minimax(profundidade+1, indice*2, 1, placar, h), 
+	 #Se eh o jogador B ( minimizer ) #Mininmo entre ir pra Dir/Esq
+	else:
+		return min(minimax(profundidade+1, indice*2, 1, placar, h), 
 	minimax(profundidade+1, indice*2 + 1, 1, placar, h))
 	
 	

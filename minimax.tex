@@ -46,16 +46,16 @@
 \begin{document}
 \maketitle
 	\section{Definição}
-	\emph{Minimax} é um método usado na Teoria de Decisão e Teoria dos Jogos para minimizar a perda máxima possivel, ou seja, num ambiente em que as situações podem causar \emph{ganhos} ou \emph{percas} o algoritmo é utilizado para garantir que \textit{a maior perca que possa ocorrer} seja minimizada. \\
+	\emph{Minimax} é um método usado na Teoria de Decisão e Teoria dos Jogos para minimizar a perda máxima possivel, ou seja, num ambiente em que as situações podem causar \emph{ganhos} ou \emph{perdas} o algoritmo é utilizado para garantir que \textit{a maior perda que possa ocorrer} seja minimizada. \\
 	
 	O teorema foi demonstrado por Von Neumann, matemático considerado um dos pais da Teoria dos Jogos, em 1926.\\
 	
-	A teoria dos jogos foi desenvolvida com a finalidade de analisar situações competitivas que envolvem interesses conflitantes. Nestas situações, existem dois ou mais agentes com intensões diferentes cujas ações influenciam,  mas não determinam - \emph{completamente} - o resultado do jogo. \\
+	A teoria dos jogos foi desenvolvida com a finalidade de analisar situações competitivas que envolvem interesses conflitantes. Nestas situações, existem dois ou mais agentes com intenções diferentes cujas ações influenciam,  mas não determinam - \emph{completamente} - o resultado do jogo. \\
 	
 	Para estudar tal método, é necessário primeiro definir o que são jogos de soma zero. (Zero sum games). 
 	
 	\subsection{Zero Sum Games}
-	Um jogo de soma zero é definido como um jogo em que quando um dos jogadores ganha, o outro perde, isso define uma \emph{soma zero}. Em tais jogos, a competitividade e estratégia é fator fundamental: não existe motivo para os jogadores colaborarem entre sí. Formalmente, num jogo de soma zero com dois jogadores o ganho de um jogador é a perca do outro.
+	Um jogo de soma zero é definido como um jogo em que quando um dos jogadores ganha, o outro perde, isso define uma \emph{soma zero}. Em tais jogos, a competitividade e estratégia é fator fundamental: não existe motivo para os jogadores colaborarem entre si. Formalmente, num jogo de soma zero com dois jogadores o ganho de um jogador é a perda do outro.
 	
 	\subsection{Teorema Minimax}
 	O Teorema Minimax de Von Neumann assegurava que para todos os jogos de duas pessoas e
@@ -63,7 +63,7 @@
 	teriam o mesmo resultado médio esperado, que seria o melhor ganho que cada “jogador”
 	poderia esperar se o adversário jogasse racionalmente. \\
 	
-	Formalmente, o teorema minimax garante que, se atribuidos valores para cada conjunto de jogadas mistas, ie, um valor para cada sequência ou decisão tomada pelos jogadores A e B, um movimento que \emph{maximize} as chances do jogador A vencer, automaticamente \emph{minimiza} as chances do jogador B vencer. \\
+	Formalmente, o teorema minimax garante que, se atribuidos valores para cada conjunto de jogadas mistas, isto é, um valor para cada sequência ou decisão tomada pelos jogadores A e B, um movimento que \emph{maximize} as chances do jogador A vencer, automaticamente \emph{minimiza} as chances do jogador B vencer. \\
 	
 	Dessa forma, temos - matematicamente - que:
 	\textit{Sejam \textbf{X} e \textbf{Y} estratégias mistas para os jogadores \textbf{A e B}, seja também a matriz A a matriz de ganho do jogo, então:}
@@ -83,6 +83,7 @@
 	Se o jogador B identifica que um movimento levará a uma situação em que o adversário pode ganhar no próximo movimento, e que existe outro movimento que poderá levar a uma situação em que o adversário pode, no máximo, empatar, então, este último é o melhor movimento para ele.\\
 	
     Após algumas rodadas, é fácil identificar qual é o melhor movimento. O algoritmo minimax ajuda a encontrar a melhor jogada, ao se caminhar pelas opções válidas, a partir do fim do jogo. A cada passo, assume-se que o jogador A está tentando maximizar as chances dele ganhar, enquanto na próxima rodada o jogador B está tentando minimizar as chances de isso acontecer (ao maximizar as chances de que ele próprio ganhe). \\
+
     \subsection{Competição de Empresas}
     Num artigo sobre teoria dos jogos, teorema minimax e equilibrio de Nash, a matemática Cristiene dos Santos utiliza o seguinte exemplo: \cite{artg} \\
     
@@ -98,33 +99,51 @@
     esta análise, conclui-se que \textbf{o decisor racional procurará um modo de atuação que lhe dê o
     melhor ganho possível na pior situação, ou seja, o melhor ganho admitindo que o oponente
     fará o melhor contra movimento}. \\
+
+\subsection{Minimax de Condorcet}
+
+Em eleições que utilizam o método de Condorcet (no qual os eleitores classificam os candidatos em ordem de preferência), é possível utilizar o algoritmo Minimax para determinar o candidato vencedor. O Minimax de Condorcet seleciona como vencedor o candidato cujo maior taxa de derrota seja menor que a maior taxa de derrota de qualquer outro candidato, quando tomados em pares. \cite{condorcet} \\
+   
+\subsection{Teoria da Decisão}
+
+O minimax também pode ser utilizado na Teoria da Decisão, mais precisamente na teoria da aversão ao arrependimento, ou arrependimento antecipado, que visa antecipar o arrependimento que uma decisão pode causar e assim mudar ou não a decisão, com o objetivo, portanto, de minimizar o máximo arrependimento possível. Isso pode ser utilizado em uma variedade de áreas como testes de hipóteses, predições, economia, entre outras. \cite{regret} \\
+
+Em investimentos, por exemplo, adotar uma abordagem do tipo Maximin para evitar um grande prejuízo pode ser uma alternativa segura, no entanto em algumas circunstâncias pode não ser o melhor caminho visto que tomar um risco ligeiramente maior pode oferecer um ganho muito superior, caso no qual o arrependimento seria grande. \\
+
+Desta forma, o algoritmo Minimax na Teoria do Arrependimento calcula as diferenças entre os retornos dos melhores possíveis retornos, montando uma tabela de arrependimento, com um valor para cada possibilidade. Aplicando o algoritmo Minimax nesta tabela de arrependimento irá retornar qual é o investimento com menor risco de arrependimento, em contraste com o algoritmo Maximin na tabela de retornos, que retorna qual é o investimento com menor prejuízo no pior caso. \\
 	
+\subsection{Teoria dos Grafos}
+
+O algoritmo Minimax também pode ser utilizado em Teoria dos Grafos para se calcular qual é a menor distância máxima entre dois pontos -- não necessariamente o menor caminho, mas um caminho cuja maior aresta tem o menor valor possível. Uma das aplicações desta forma envolve lógistica de transportes. \cite{fw} \\
+
+Neste problema, o algoritmo executa numa matriz de adjacências, analisando, para cada par de vértices, qual é o vértice intermediário que minimiza a maior aresta, caso exista. Pode ser facilmente implementado baseando-se no algoritmo de Floyd-Warshall, caso o problema seja pequeno o suficiente. \\
+
 \section{Algoritmo}
 
 \subsection{Metodologia}
-	O algoritmo será implementado em \emph{Python} seguindo o seguinte raciocinio: \cite{gfg}\\
+	O algoritmo será implementado em \emph{Python} e em \emph{C} seguindo o seguinte raciocinio: \cite{gfg}\\
 	
 	Considerando um jogo qualquer que possui \emph{estados} que são alcançados após uma \emph{sequência de movimentos} realizadas pelos jogadores A e B, cada estado do jogo irá possuir um valor associado a ele. Em um dado estado, se o jogador A possui a vantagem, este estado tera um valor positivo. Caso contrário, o estado terá um valor negativo. Neste cenário, o jogador A tenta maximizar os valores, enquanto o jogador B tentará minimiza-los. \\
 	
-	Estes valores são calculados através de alguma heuristica que é única para cada tipo de jogo ou situação.\\
+	Estes valores são calculados através de alguma heurística que é única para cada tipo de jogo ou situação.\\
 	
 	Considerando um jogo com 4 estados finais possíveis representados numa árvore binária como a da figura abaixo, onde o primeiro jogador a jogar tem o objetivo de maximizar o resultado.
 	
 	\begin{figure}[H]
 	\includegraphics[width=\linewidth]{gtt.png}
-	\caption{Arvore de Estados \cite{gfg}}
+	\caption{Árvore de Estados \cite{gfg}}
 	\label{fig:arvore1}
 	\end{figure}
 
-	O algoritmo será implementado através de um \textit{Backtrac}, dessa forma, ele irá testar todos os movimentos possíveis e retornar o maior ganho. Os movimentos, considerando que o jogador B jogue de forma ótima são:
+	O algoritmo será implementado através de \textit{Backtracking}, dessa forma, ele irá testar todos os movimentos possíveis e retornar o maior ganho. Os movimentos, considerando que o jogador B jogue de forma ótima são:
 	\begin{itemize}
 		\item Jogador A escolhe ir para a esquerda: Em seguida, o jogador B escolhe 3.
 		\item Jogador A escolhe ir para a direita: Em seguida, o jogador B escolhe 2.
 	\end{itemize}
-	Dessa forma, o movimento ótimo para o jogador A é ir para a esquerda, uma vez que este movimento irá \emph{minimizar a sua perca}, ie, entre os dois valores finais prováveis [2 e 3], ele escolherá o maior. Isto pode ser representado pela segunda árvore de estados:
+	Dessa forma, o movimento ótimo para o jogador A é ir para a esquerda, uma vez que este movimento irá \emph{minimizar a sua perda}, isto é, entre os dois valores finais prováveis [2 e 3], ele escolherá o maior. Isto pode ser representado pela segunda árvore de estados:
 	\begin{figure}[H]
 	   \includegraphics[width=\linewidth]{gtt2.png}
-	   \caption{Arvore de Estados Final\cite{gfg}}
+	   \caption{Árvore de Estados Final\cite{gfg}}
 	   \label{fig:arvore2}
 	\end{figure}
 	
@@ -147,13 +166,11 @@
 		return max(minimax(profundidade+1, indice*2, 0, placar, h),  
 	minimax(profundidade+1, indice*2 + 1, 0, placar, h)) 
 	
-	 #Se eh o jogador B ( minimizer ) #Mininmo entre ir pra Dir/Esq
+	 #Se eh o jogador B ( minimizer ) 
+	#Minimo entre ir pra Dir/Esq
 	else:
 		return min(minimax(profundidade+1, indice*2, 1, placar, h), 
 	minimax(profundidade+1, indice*2 + 1, 1, placar, h))
-	
-	
-	
 	
 	placar = [3, 5, 2, 9, 12, 5, 23, 23] # Arvore
 	n = 8 # Numero de elementos
@@ -164,6 +181,37 @@
 	
 	\end{lstlisting}
 	
+Uma implementação em C do jogo descrito:
+
+\begin{lstlisting}[]
+#include <stdio.h>
+#include <math.h>
+#define INF 0x3f3f3f3f
+#define max(a, b) ((a) > (b) ? (a) : (b))
+#define min(a, b) ((a) < (b) ? (a) : (b))
+
+int minimax(int profundidade, int indice, int jogador,
+	          int *placar, int h){
+	if(profundidade == h) return placar[indice];
+	if(jogador == 1){
+		return max(minimax(profundidade+1, indice*2, 0, placar, h), 
+				   minimax(profundidade+1, indice*2+1, 0, placar, h));
+	}
+	else {
+		return max(minimax(profundidade+1, indice*2, 1, placar, h),
+				   minimax(profundidade+1, indice*2+1, 1, placar, h));
+	}
+}
+
+int main(){
+	int placar[] = {3, 5, 2, 9, 12, 5, 23, 23};
+	int n = 8, altura = ceil(log(n)/log(2));
+	int res = minimax(0,0,1,placar,altura);
+	printf("O melhor valor alcancado por A eh %d\n",res);
+	return 0;
+}
+\end{lstlisting}
+	
 \begin{thebibliography}{1}
 	\bibitem{artg} COSTA, Cristiene dos Santos - \textit{TEORIA DOS JOGOS E A RELAÇÃO ENTRE O “TEOREMA MINIMAX” DE JOHN VON NEUMANN E O “EQUILÍBRIO DE NASH” DE JOHN NASH} <https://repositorio.ucb.br/jspui/bitstream/10869/1549/1/Cristiene\%20dos\%
 	20Santos\%20Costa.pdf> Acesso em 01/Setembro/2017.
@@ -171,6 +219,14 @@
 	\bibitem{wolfram} Weisstein, Eric W. "Minimax Theorem." From MathWorld--A Wolfram Web Resource. http://mathworld.wolfram.com/MinimaxTheorem.html
 	
 	\bibitem{gfg} Minimax Algorithm in Game Theory | Set 1. From GeeksForGeeks  http://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-1-introduction/.
+	
+	\bibitem{condorcet} Levin, Jonathan, and Barry Nalebuff. 1995. "An Introduction to Vote-Counting Schemes." Journal of Economic Perspectives, 9(1): 3–26
+	
+	\bibitem{regret} Savage, L.J. (1951). "The theory of statistical decision." Journal of the American Statistical Association, vol. 46, pp. 55–67.
+	
+	\bibitem{fw} Berman, Oded; Handler, Gabriel Y. (1987), "Optimal Minimax Path of a Single Service Unit on a Network to Nonservice Destinations", Transportation Science, 21 (2): 115–122
+	
+	
 	
 \end{thebibliography}	 
 	
